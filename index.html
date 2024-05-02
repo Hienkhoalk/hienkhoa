@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bí Mật</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="bdc.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      /* CSS để căn giữa trang và trang trí */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #0f0f0f;
+        font-family: Arial, sans-serif;
+      }
+
+      #countdown {
+        font-size: 100px;
+        font-weight: bold;
+        color: #f0ebeb;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var countdownElement = document.getElementById("countdown");
+        var count = 3;
+
+        var countdownInterval = setInterval(function () {
+          countdownElement.textContent = count;
+          count--;
+
+          if (count < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.style.display = "none";
+            document.getElementById("content").style.display = "block";
+            setTimeout(function () {
+              document.getElementById("content").style.display = "none";
+              document.getElementById("birthday-cake").style.display = "block";
+            }, 2200); // Đợi 5 giây trước khi hiển thị birthday-cake
+          }
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="countdown">3</div>
+    <div id="content" style="display: none">
+      <canvas id="c"></canvas>
+
+      <script src="script.js"></script>
+    </div>
+    <div id="birthday-cake" style="display: none">
+      <div class="cake">
+        <div class="middle"></div>
+        <div class="chocs"></div>
+        <div class="top"></div>
+      </div>
+        <div class="candles">
+          <div class="flame"></div>
+          <div class="flame2"></div>
+          <div class="flame3"></div>
+          <div class="text">Your wish is cominng!</div>
+          <div class="shadows"></div>
+        </div>
+        <p class="text2">click on the flame to blow candles</p>
+      </div>
+      <script src="bdc.js"></script>
+    </div>
+  </body>
+</html>
